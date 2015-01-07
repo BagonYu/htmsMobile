@@ -1,0 +1,56 @@
+<form action="/baidu">
+
+<div class="search-bar input-group">
+  <div class="input-group-btn">
+    <button type="button" id="searchBtn" class="btn btn-default dropdown-toggle" data-toggle="dropdown">{{searchActionItemSelected.item}}<span class="caret"></span></button>
+    <ul class="dropdown-menu" role="menu">
+      <li ng-repeat="searchActionItem in searchActionItems">
+        <a ng-click="doSearch(searchActionItem)">{{searchActionItem}}</a>
+      </li>
+    </ul>
+  </div><!-- /btn-group -->
+  <input type="search" results="5" placeholder="搜索" ng-model="q.val" class="form-control"/>
+</div>
+</form>
+<div>
+  <script type="text/ng-template" id="myModalContent.html">
+    <div class="modal-header">
+      <h3 class="modal-title">自定义查询</h3>
+    </div>
+    <div class="modal-body">
+      <div><strong>所属辖区</strong>
+        <autocomplete ng-model="yourchoice" data="movies" on-type="updateMovies"></autocomplete>
+      </div>
+      <label for="qygm">企业规模</label>
+      <select name="qygm" id="qygm">
+        <option value="1">大型企业</option>
+        <option value="2">中型企业</option>
+        <option value="3">小型企业</option>
+        <option value="4">微型企业</option>
+      </select>
+      <br/>
+      <label for="hyfl">行业分类</label>
+      <br/>
+      <select name="qygm" id="hyfl">
+        <option value="1">化工业</option>
+        <option value="2">生产制造业</option>
+        <option value="3">公共卫生</option>
+        <option value="4">酒店</option>
+      </select>
+      <br/>
+      <select name="qygm" id="hyfl2">
+        <option value="1">请选择第一分类</option>
+        <option value="2">阿萨德撒旦</option>
+        <option value="3">公共卫生</option>
+        <option value="4">酒店</option>
+      </select>
+
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-primary" ng-click="ok()">查询</button>
+      <button class="btn btn-warning" ng-click="cancel()">取消</button>
+    </div>
+  </script>
+</div>
+
+

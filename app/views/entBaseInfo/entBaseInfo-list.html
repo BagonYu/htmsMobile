@@ -1,0 +1,66 @@
+<!-- Site header and navigation -->
+<div class="top  navbar-fixed-top">
+  <div class="container">
+    <a href="#" class="navbar-brand pull-left">
+      隐患排查
+    </a>
+    <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+      <span class="glyphicon glyphicon-align-justify"></span>
+    </button>
+    <nav class="navbar-collapse collapse" role="navigation">
+      <ul class="navbar-nav nav">
+        <li><a href="#/">首页工作提醒</a></li>
+        <li><a href="#">隐患核查复查</a></li>
+        <li><a href="#">分级评定</a></li>
+      </ul>
+      <!--<form class="navbar-form navbar-left" role="search" style="padding-top: 5px">-->
+      <!--<div class="form-group">-->
+      <!--<input type="text" class="form-control input-sm" placeholder="搜索你感兴趣的事情">-->
+      <!--</div>-->
+      <!--<button type="submit" class="btn btn-sm">搜索</button>-->
+      <!--</form>-->
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">注册</a></li>
+        <li><a href="#">登陆</a></li>
+      </ul>
+    </nav>
+  </div>
+</div>
+<div class="container">
+<div class="row" >
+    <div class="col-xs-12 col-md-12">
+        <list-x ng-model="items" title="Contacts" on-load="loadHandler()" on-select="clickHandler(item)"  load-url="/views/db/entBaseInfos.json" item-handlers="nestedHandlers">
+            <item-template><a href="/angularjs_test02/app/{{item.qyid}}.html" class="list-x-item">
+                <span class="main-text" style="margin: 0"><strong>{{ item.qymc }}</strong>
+                    <div class="btn-group pull-right" dropdown>
+                        <button type="button" class="btn btn-sm btn-info">编辑查看</button>
+                        <button type="button"  class="btn btn-sm btn-info dropdown-toggle" dropdown-toggle>
+                            <span class="caret"></span>
+                            <span class="sr-only">编辑查看</span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">审核</a></li>
+                            <li><a href="#">重置密码</a></li>
+                            <li><a href="#">注销</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">删除</a></li>
+                        </ul>
+                    </div>
+                </span>
+                <div class="text-muted desc"><small style="padding-left: 50px;">{{ item.qyms }}</small>
+                    <!-- Split button -->
+
+                </div>
+                <div class="clearfix"></div></a></item-template>
+        </list-x>
+        <nav>
+            <ul class="pager">
+                <li class="previous btn-sm"><a href="#">&larr; 上一页</a></li>
+                <li class="next btn-sm"><a href="#">下一页 &rarr;</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+
+    </div>
