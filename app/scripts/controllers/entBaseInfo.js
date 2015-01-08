@@ -13,20 +13,19 @@ angular.module('htmsMobileApp').value("listxConfig", {
   itemTemplate: "views/tpl/item-tpl.html"
 })
   .controller('EntBaseInfoCtrl', function($scope,$http) {
-    $scope.nestedHandlers = {
-      itemBtnClick: function(item, $event) {
-        $event.cancelBubble = true;
-        alert('Send Message to: ' + item.text);
-        console.log(item, $event);
-      }
-    };
-    $http.get("views/db/entBaseInfos.json").success(
-      function(data,status,headers,config){
-        console.log(config)
-        $scope.entBaseInfos = data;
-      }).error(function(data,status,headers,config){
-        console.log('error')
-      });
+    //$scope.nestedHandlers = {
+    //  itemBtnClick: function(item, $event) {
+    //    $event.cancelBubble = true;
+    //    alert('Send Message to: ' + item.text);
+    //    console.log(item, $event);
+    //  }
+    //};
+    //$http.get("views/db/entBaseInfos.json").success(
+    //  function(data,status,headers,config){
+    //    $scope.entBaseInfos = data;
+    //  }).error(function(data,status,headers,config){
+    //    console.log('error')
+    //  });
   }).controller("listxController", function ($scope, $element, $attrs, $transclude, $templateCache,$modal,$log ,listxConfig) {
     $scope.searchActionItems = ['全部', '待审核', '已上报','已评级','自定义'];
     $scope.searchActionItemSelected = {item : $scope.searchActionItems[0]};
