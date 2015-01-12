@@ -26,7 +26,36 @@ angular.module('htmsMobileApp').value("listxConfig", {
     //  }).error(function(data,status,headers,config){
     //    console.log('error')
     //  });
-  }).controller("listxController", function ($scope, $element, $attrs, $transclude, $templateCache,$modal,$log ,listxConfig) {
+  }).controller('InfoDetailCtrl',function($scope,$routeParams){
+
+
+    console.log($routeParams.id)
+  }).controller("BaseInfoCtrl",['$scope',function($scope){
+    $scope.baseInfo = {
+      qymc : '广州医药集团有限公司',
+      gsyyzzh : '44008698886666'
+    }
+  }]).controller("EntGorup",function($scope,$http){
+    $scope.queryGroup = function(queryStr){
+      $http.get("views/db/entBaseInfos.json").success(
+        function(data,status,headers,config){
+          console.log(config)
+          $scope.baseInfos = data;
+        }).error(function(data,status,headers,config){
+          console.log('error')
+        });
+    };
+    $scope.getGroupQy = function(qymc){
+      angular.element('#sjBtn').val(qymc);
+      angular.element('#sjdwmcModal').modal('hide');
+      $scope.baseInfos = [];
+    }
+  })
+  .controller("listxController", function ($scope, $element, $attrs, $transclude, $templateCache,$modal,$log ,listxConfig,RouteFilter) {
+    $scope.canAccess = function(route)
+    {
+      return RouteFilter.canAccess(route);
+    }
     $scope.searchActionItems = ['全部', '待审核', '已上报','已评级','自定义'];
     $scope.searchActionItemSelected = {item : $scope.searchActionItems[0]};
     $scope.open = function (size) {

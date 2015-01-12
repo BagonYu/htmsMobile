@@ -1,0 +1,29 @@
+{
+  "id":5,
+  "name":"zhang san",
+  "passwd":"asdasdsdasdsd87877",
+  "bumen":1,
+  "type":0,
+  "role":[
+    {
+      "entBaseInfo":[
+        {
+          "add":true,
+          "delete":true,
+          "update":true,
+          "query":true
+        }
+      ]
+    },
+    {
+      "yinhuan":[
+        {
+          "add":false,
+          "delete":false,
+          "update":true,
+          "query":true
+        }
+      ]
+    }
+  ]
+}

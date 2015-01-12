@@ -1,0 +1,444 @@
+<div class="top navbar-fixed-top" role="header">
+  <div class="container">
+    <a href="#" class="navbar-brand pull-left">
+      隐患排查
+    </a>
+    <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+      <span class="glyphicon glyphicon-align-justify"></span>
+    </button>
+    <nav class="navbar-collapse collapse" role="navigation">
+      <ul class="navbar-nav nav">
+        <li><a href="#/">首页工作提醒</a></li>
+        <li><a href="#">隐患核查复查</a></li>
+        <li><a href="#">分级评定</a></li>
+      </ul>
+      <!--<form class="navbar-form navbar-left" role="search" style="padding-top: 5px">-->
+      <!--<div class="form-group">-->
+      <!--<input type="text" class="form-control input-sm" placeholder="搜索你感兴趣的事情">-->
+      <!--</div>-->
+      <!--<button type="submit" class="btn btn-sm">搜索</button>-->
+      <!--</form>-->
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">注册</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown">登陆 <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+<!-- Middle content section -->
+<div class="middle">
+  <div class="container">
+    <tabset>
+      <tab heading="企业基本信息">
+        <div class="row">
+          <div class="box col-md-12">
+            <div class="box-inner">
+              <div class="box-header well" data-original-title="">
+                <h2><i class="glyphicon glyphicon-th"></i>基本项目</h2>
+
+                <div class="box-icon jiben">
+                  <a href="#" class="btn btn-edit btn-round btn-default"><i
+                    class="glyphicon glyphicon-edit"></i></a>
+                  <a href="#" class="btn btn-saveOrUpdate btn-round btn-default"><i
+                    class="glyphicon glyphicon-ok"></i></a>
+                  <a class="btn btn-minimize btn-round btn-default"><i
+                    class="glyphicon glyphicon-chevron-up"></i></a>
+                </div>
+              </div>
+              <div class="box-content" ng-controller="BaseInfoCtrl">
+                <div class="row jiben">
+                  <div class="col-md-4"><strong>企业名称</strong>
+
+                    <p>
+                      <small id="qymc">{{baseInfo.qymc}}</small>
+                    </p>
+                  </div>
+                  <div class="col-md-4"><strong>工商营业执照号</strong>
+
+                    <p>
+                      <small id="gsyyzzh">{{baseInfo.gsyyzzh}}</small>
+                    </p>
+                  </div>
+                  <div class="col-md-4"><strong>组织机构代码</strong>
+
+                    <p>
+                      <small id="zzjgdm">678885</small>
+                    </p>
+                  </div>
+                  <div class="col-md-4"><strong>法人代表</strong>
+
+                    <p>
+                      <small id="frdb">郭少娟</small>
+                    </p>
+                  </div>
+                  <div class="col-md-4"><strong>负责人电话</strong>
+
+                    <p>
+                      <small id="fzrdh">020-3343434</small>
+                    </p>
+                  </div>
+                  <div class="col-md-4"><strong>经营范围</strong>
+
+                    <p>
+                      <small id="jyfw">销售：汽车、汽车配件等</small>
+                    </p>
+                  </div>
+                  <div class="col-md-4"><strong>隐患排查部门负责人</strong>
+
+                    <p>
+                      <small>sadd</small>
+                    </p>
+                  </div>
+                  <div class="col-md-4"><strong>负责人移动电话</strong>
+
+                    <p>
+                      <small>1818279387</small>
+                    </p>
+                  </div>
+                  <div class="col-md-4"><strong>所属辖区</strong>
+
+                    <p>
+                      <small id="ssxq">广州市-番禺区-大街镇-钟村</small>
+                    </p>
+                  </div>
+                  <div class="col-md-4"><strong>行业分类</strong>
+
+                    <p>
+                      <small></small>
+                    </p>
+                  </div>
+                  <div class="col-md-4"><strong>监管分类</strong>
+
+                    <p>
+                      <small></small>
+                    </p>
+                  </div>
+                  <div class="col-md-4"><strong>行业主管部门</strong>
+
+                    <p>
+                      <small></small>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--/span-->
+        </div>
+        <div class="row">
+          <div class="box col-md-6" ng-controller="EntGorup">
+            <div class="box-inner">
+              <div class="box-header well" data-original-title="">
+                <h2><i class="glyphicon glyphicon-th"></i>上级单位</h2>
+
+                <div class="box-icon sjdw">
+                  <a href="#" class="btn btn-edit btn-round btn-default"><i
+                    class="glyphicon glyphicon-edit"></i></a>
+                  <a href="#" class="btn btn-saveOrUpdate btn-round btn-default"><i
+                    class="glyphicon glyphicon-ok"></i></a>
+                  <a href="#" class="btn btn-minimize btn-round btn-default"><i
+                    class="glyphicon glyphicon-chevron-up"></i></a>
+                </div>
+              </div>
+              <div class="box-content">
+                <div class="row sjdw">
+                  <div class="col-md-4"><strong>上级单位名称</strong>
+
+                    <p>
+                      <small id="sjdwmc">广州医药集团</small>
+                    </p>
+                  </div>
+                  <div class="col-md-4"><strong>上级单位组织机构单吗</strong></div>
+                  <div class="col-md-4"><strong>上级单位工商营业执照号</strong></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--/span-->
+
+          <div class="box col-md-6">
+            <div class="box-inner">
+              <div class="box-header well" data-original-title="">
+                <h2><i class="glyphicon glyphicon-th"></i>企业分类</h2>
+
+                <div class="box-icon">
+                  <a href="#" class="btn btn-setting btn-round btn-default"><i
+                    class="glyphicon glyphicon-cog"></i></a>
+                  <a href="#" class="btn btn-minimize btn-round btn-default"><i
+                    class="glyphicon glyphicon-chevron-up"></i></a>
+                  <!--<a href="#" class="btn btn-close btn-round btn-default"><i-->
+                  <!--class="glyphicon glyphicon-remove"></i></a>-->
+                </div>
+              </div>
+              <div class="box-content">
+                <div class="row">
+                  <div class="col-md-4"><strong>行业分类</strong></div>
+                  <div class="col-md-4"><strong>监管分类</strong></div>
+                  <div class="col-md-4"><strong>行业主管部门</strong></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--/span-->
+        </div>
+      </tab>
+      <tab heading="单位生产安全管理信息">
+          <div class="row">
+            <div class="box col-md-12">
+              <div class="box-inner">
+                <div class="box-header well" data-original-title="">
+                  <h2><i class="glyphicon glyphicon-th"></i>基本项目</h2>
+
+                  <div class="box-icon">
+                    <a href="#" class="btn btn-edit btn-round btn-default"><i
+                      class="glyphicon glyphicon-edit"></i></a>
+                    <a href="#" class="btn btn-saveOrUpdate btn-round btn-default"><i
+                      class="glyphicon glyphicon-ok"></i></a>
+                    <a href="#" class="btn btn-minimize btn-round btn-default"><i
+                      class="glyphicon glyphicon-chevron-up"></i></a>
+                  </div>
+                </div>
+                <div class="box-content" ng-controller="BaseInfoCtrl">
+                  <div class="row jiben">
+                    <div class="col-md-4"><strong>企业名称</strong>
+
+                      <p>
+                        <small>{{baseInfo.qymc}}</small>
+                      </p>
+                    </div>
+                    <div class="col-md-4"><strong>工商营业执照号</strong>
+
+                      <p>
+                        <small>{{baseInfo.gsyyzzh}}</small>
+                      </p>
+                    </div>
+                    <div class="col-md-4"><strong>组织机构代码</strong>
+
+                      <p>
+                        <small>678885</small>
+                      </p>
+                    </div>
+                    <div class="col-md-4"><strong>法人代表</strong>
+
+                      <p>
+                        <small>郭少娟</small>
+                      </p>
+                    </div>
+                    <div class="col-md-4"><strong>负责人电话</strong>
+
+                      <p>
+                        <small>020-3343434</small>
+                      </p>
+                    </div>
+                    <div class="col-md-4"><strong>经营范围</strong>
+
+                      <p>
+                        <small>销售：汽车、汽车配件等</small>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--/span-->
+          </div>
+          <!--/row-->
+
+
+          <div class="row">
+            <div class="box col-md-6">
+              <div class="box-inner">
+                <div class="box-header well" data-original-title="">
+                  <h2><i class="glyphicon glyphicon-th"></i>上级单位</h2>
+
+                  <div class="box-icon">
+                    <a href="#" class="btn btn-setting btn-round btn-default"><i
+                      class="glyphicon glyphicon-cog"></i></a>
+                    <a href="#" class="btn btn-minimize btn-round btn-default"><i
+                      class="glyphicon glyphicon-chevron-up"></i></a>
+                    <!--<a href="#" class="btn btn-close btn-round btn-default"><i-->
+                    <!--class="glyphicon glyphicon-remove"></i></a>-->
+                  </div>
+                </div>
+                <div class="box-content">
+                  <div class="row">
+                    <div class="col-md-4"><strong>上级单位名称</strong></div>
+                    <div class="col-md-4"><strong>上级单位组织机构单吗</strong></div>
+                    <div class="col-md-4"><strong>上级单位工商营业执照号</strong></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--/span-->
+
+            <div class="box col-md-6">
+              <div class="box-inner">
+                <div class="box-header well" data-original-title="">
+                  <h2><i class="glyphicon glyphicon-th"></i>企业分类</h2>
+
+                  <div class="box-icon">
+                    <a href="#" class="btn btn-setting btn-round btn-default"><i
+                      class="glyphicon glyphicon-cog"></i></a>
+                    <a href="#" class="btn btn-minimize btn-round btn-default"><i
+                      class="glyphicon glyphicon-chevron-up"></i></a>
+                    <!--<a href="#" class="btn btn-close btn-round btn-default"><i-->
+                    <!--class="glyphicon glyphicon-remove"></i></a>-->
+                  </div>
+                </div>
+                <div class="box-content">
+                  <div class="row">
+                    <div class="col-md-4"><strong>行业分类</strong></div>
+                    <div class="col-md-4"><strong>监管分类</strong></div>
+                    <div class="col-md-4"><strong>行业主管部门</strong></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--/span-->
+          </div>
+          <!--/row-->
+
+      </tab>
+      <tab heading="奖罚情况">jiangfaqingkuang</tab>
+      <tab heading="审核">
+        <div class="row">
+          <div class="box col-md-12">
+            <div class="box-inner">
+              <div class="box-header well" data-original-title="">
+                <h2><i class="glyphicon glyphicon-th"></i>审核</h2>
+
+                <div class="box-icon">
+                  <a href="#" class="btn btn-edit btn-round btn-default"><i
+                    class="glyphicon glyphicon-edit"></i></a>
+                  <a href="#" class="btn btn-saveOrUpdate btn-round btn-default"><i
+                    class="glyphicon glyphicon-ok"></i></a>
+                  <a href="#" class="btn btn-minimize btn-round btn-default"><i
+                    class="glyphicon glyphicon-chevron-up"></i></a>
+                </div>
+              </div>
+              <textarea name="shenhe" id="shenhe" cols="30" rows="10" class="form-control" placeholder="请填写审核意见..."></textarea>
+            </div>
+          </div>
+          <!--/span-->
+        </div>
+        <!--/row-->
+      </tab>
+      <tab heading="历史流水信息">
+        <div class="row">
+          <div class="box col-md-12">
+            <div class="box-inner">
+              <div class="box-header well" data-original-title="">
+                <h2><i class="glyphicon glyphicon-th"></i>历史信息</h2>
+
+                <div class="box-icon">
+                  <a href="#" class="btn btn-edit btn-round btn-default"><i
+                    class="glyphicon glyphicon-edit"></i></a>
+                  <a href="#" class="btn btn-saveOrUpdate btn-round btn-default"><i
+                    class="glyphicon glyphicon-ok"></i></a>
+                  <a href="#" class="btn btn-minimize btn-round btn-default"><i
+                    class="glyphicon glyphicon-chevron-up"></i></a>
+                </div>
+
+              </div>
+              <div class="row-fluid">
+                <div class="col-md-12">
+                  <ul class="timeline">
+
+                    <li>
+                      <div class="timeline-badge">2014/12/28</div>
+                      <div class="timeline-panel">
+                        <div class="timeline-heading">
+                          <h4 class="timeline-title">企业基本信息审核</h4>
+                        </div>
+                        <div class="timeline-body">
+                          <p>企业基本信息审核，同意</p>
+                          <p>天河街中队</p>
+                        </div>
+                      </div>
+                    </li>
+
+                    <li class="timeline-inverted">
+                      <div class="timeline-badge">2015/01/03</div>
+                      <div class="timeline-panel">
+                        <div class="timeline-heading">
+                          <h4 class="timeline-title">企业基本信息修改</h4>
+                        </div>
+                        <div class="timeline-body">
+                          <p>市安监局</p>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--/span-->
+        </div>
+        <!--/row-->
+      </tab>
+    </tabset>
+
+  </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
+          class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">经营范围</h4>
+      </div>
+      <div class="modal-body">
+        <textarea name="" id="" class="col-md-4 form-control" rows="3"></textarea>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="sjdwmcModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" ng-controller="EntGorup">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
+          class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="sjdwmcTitile">上级单位名称</h4>
+      </div>
+      <div class="modal-body" >
+        <div class="input-group">
+          <input type="text" class="form-control" ng-model="queryStr" name="queryStr">
+                      <span class="input-group-btn">
+                        <button class="btn btn-default" type="button" ng-click="queryGroup(queryStr)">查询</button>
+                      </span>
+        </div>
+        <!-- /input-group -->            </div>
+      <table class="table">
+        <tr>
+          <th>名称</th>
+          <th>操作</th>
+        </tr>
+        <tr ng-repeat="baseInfo in baseInfos">
+          <td>{{baseInfo.qymc}}</td>
+          <td><button class="btn btn-info btn-sm" ng-click="getGroupQy(baseInfo.qymc)">选择</button></td>
+        </tr>
+      </table>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
+      </div>
+    </div>
+  </div>
+</div>

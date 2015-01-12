@@ -2,6 +2,7 @@
 
 <div class="search-bar input-group">
   <div class="input-group-btn">
+    <a type="button" ng-show="canAccess('/qiye')" ng-href="#/newBaseInfo" class="btn btn-danger"><i class="glyphicon glyphicon-plus"></i></a>
     <button type="button" id="searchBtn" class="btn btn-default dropdown-toggle" data-toggle="dropdown">{{searchActionItemSelected.item}}<span class="caret"></span></button>
     <ul class="dropdown-menu" role="menu">
       <li ng-repeat="searchActionItem in searchActionItems">

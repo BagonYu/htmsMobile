@@ -27,10 +27,11 @@
   </div>
 </div>
 <div class="container">
+
 <div class="row" >
     <div class="col-xs-12 col-md-12">
         <list-x ng-model="items" title="Contacts" on-load="loadHandler()" on-select="clickHandler(item)"  load-url="/views/db/entBaseInfos.json" item-handlers="nestedHandlers">
-            <item-template><a href="/angularjs_test02/app/{{item.qyid}}.html" class="list-x-item">
+            <item-template><a href="#/infoDetail/{{item.qyid}}" class="list-x-item">
                 <span class="main-text" style="margin: 0"><strong>{{ item.qymc }}</strong>
                     <div class="btn-group pull-right" dropdown>
                         <button type="button" class="btn btn-sm btn-info">编辑查看</button>
