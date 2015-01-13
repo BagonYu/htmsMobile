@@ -1,2 +1,3 @@
 # htmsMobile
-angularjs+bootstrap+grunt demo
+
+angularjs+bootstrap+grunt+yo+requireJs demo
