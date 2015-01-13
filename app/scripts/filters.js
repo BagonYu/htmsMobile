@@ -13,7 +13,7 @@ angular.module('htmsMobileApp')
     }, '/main');
 
     //企业用户
-    RouteFilter.register('QIYE', ['/entBaseInfo', '/newBaseInfo', new RegExp('/infoDetail/*'), '/qiyeMain', '/logout'], function () {
+    RouteFilter.register('QIYE', ['/qiyeyinhuanByid','/entBaseInfo', '/newBaseInfo', new RegExp('/infoDetail/*'), '/qiyeMain', '/logout'], function () {
       return Authentication.typeEqQiye();
     }, '/qiyeMain');
   });

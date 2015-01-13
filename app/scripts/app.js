@@ -48,6 +48,14 @@ angular
     /**
      * 隐患
      */
+      .when('/qiyeyinhuanByid', {
+        templateUrl: 'views/qiyeyinhuanbyid.html',
+        controller: 'QiyeyinhuanbyidCtrl'
+      })
+      .when('/yinhuanDetail/:yinhuanId',{
+        templateUrl: 'views/yinhuanDetail.html',
+        controller: 'YinhuanDetailCtrl'
+      })
     /**
      * 其他
      */
