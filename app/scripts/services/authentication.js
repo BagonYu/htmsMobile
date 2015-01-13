@@ -1,35 +1,13 @@
 'use strict';
-
+/**
+ * 身份认证服务
+ */
 angular.module('htmsMobileApp')
   .factory('Authentication', function Authentication($q, $http, $timeout,Application) {
 
     var authenticatedUser = null;
 
     return  {
-        requestUser: function()
-        {
-            var deferred = $q.defer();
-
-            $http.get('/api/user.json').success(function(user)
-            {
-                $timeout(function()
-                {
-                    // Check if user is defined first
-                    if(user) {
-
-                        authenticatedUser = user;
-                    }
-
-                    deferred.resolve(authenticatedUser);
-                }, 0);
-
-            }).error(function(error)
-            {
-                deferred.reject(error);
-            });
-
-            return deferred.promise;
-        },
 
         getUser: function()
         {
@@ -60,7 +38,7 @@ angular.module('htmsMobileApp')
 
             }).error(function(error)
             {
-                deferred.reject("输入的用户名密码错误");
+                deferred.reject("未知错误!");
             });
 
             return deferred.promise;
@@ -72,19 +50,14 @@ angular.module('htmsMobileApp')
             authenticatedUser = null;
         },
 
-        isDeveloper: function()
-        {
-            return this.exists() && authenticatedUser.type == 'developer';
-        },
-
         //判断是否是部门用户
         typeEqBumen:function()
         {
-          return this.exists() && authenticatedUser.type == 0;
+          return this.exists() && authenticatedUser.type == "BUMEN";
         },
         //判断是否是企业用户
         typeEqQiye : function(){
-          return this.exists() && authenticatedUser.type == 1;
+          return this.exists() && authenticatedUser.type == "QIYE";
         }
     }
   });

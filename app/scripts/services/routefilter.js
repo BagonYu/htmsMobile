@@ -1,7 +1,10 @@
 'use strict';
 
+/**
+ * 路由过滤器，用于权限过滤
+ */
 angular.module('htmsMobileApp')
-  .factory('RouteFilter', function Routefilter($location) {
+  .factory('RouteFilter', function Routefilter($location,Authentication) {
 
     var filters = [];
 
@@ -10,7 +13,7 @@ angular.module('htmsMobileApp')
         for (var i = filters.length - 1; i >= 0; i--) {
             for (var j = filters[i].routes.length - 1; j >= 0; j--) {
 
-                if(matchRoute(filters[i].routes[j], route))
+                if(matchRoute(filters[i].routes[j], route,filters[i].type))
                 {
                     return filters[i];
                 }
@@ -18,16 +21,23 @@ angular.module('htmsMobileApp')
         };
     }
 
-    var matchRoute = function(filterRoute, route)
+    var matchRoute = function(filterRoute, route,filterType)
     {
+      var user = Authentication.getUser();
+      var userType = null;
+      if(user){
+        userType = user.type;
+      }else{
+        userType = "guest";
+      }
         if(filterRoute instanceof RegExp)
         {
-            return filterRoute.test(route);
+            return filterRoute.test(route) && filterType === userType;
         }
 
         else
         {
-            return route === filterRoute;
+            return route === filterRoute && filterType === userType;
         }
     }
 
@@ -42,12 +52,13 @@ angular.module('htmsMobileApp')
           return false;
         },
 
-        register: function(name, routes, callback, redirectUrl)
+      //注册配置路由和相应的权限
+        register: function(type, routes, callback, redirectUrl)
         {
             redirectUrl = typeof redirectUrl !== "undefined" ? redirectUrl : null;
 
             filters.push({
-                name: name,
+                type: type,
                 routes:routes,
                 callback: callback,
                 redirectUrl: redirectUrl
@@ -60,11 +71,13 @@ angular.module('htmsMobileApp')
 
             if(filter != null && filter.redirectUrl != null)
             {
-                // User can't access this page
-                if(! filter.callback())
+                // 如果无法通过filters.js配置的路由地址回调函数，则跳转
+                if(!filter.callback())
                 {
                     $location.path(filter.redirectUrl);
                 }
+            }else{
+              $location.path('/login')
             }
         }
     }

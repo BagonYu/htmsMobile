@@ -1,19 +1,19 @@
 angular.module('htmsMobileApp')
 
-.run(function (RouteFilter, Authentication)
-{
-    RouteFilter.register('访客', ['/login'], function()
-    {
-        return ! Authentication.exists();
+  .run(function (RouteFilter, Authentication) {
+
+    //访客
+    RouteFilter.register('guest', ['/login'], function () {
+      return !Authentication.exists();
     }, '/login');
 
-    RouteFilter.register('部门用户', ['/entBaseInfo','/newBaseInfo','/infoDetail/*'], function()
-    {
-        return Authentication.typeEqBumen();
-    }, '/');
+    //部门用户
+    RouteFilter.register('BUMEN', ['/entBaseInfo', '/newBaseInfo', new RegExp('/infoDetail/*'), '/main', '/logout'], function () {
+      return Authentication.typeEqBumen();
+    }, '/main');
 
-  RouteFilter.register('qiye用户', ['/newBaseInfo','/infoDetail/*'], function()
-  {
-    return Authentication.typeEqBumen();
-  }, '/qiyeMain');
-});
+    //企业用户
+    RouteFilter.register('QIYE', ['/entBaseInfo', '/newBaseInfo', new RegExp('/infoDetail/*'), '/qiyeMain', '/logout'], function () {
+      return Authentication.typeEqQiye();
+    }, '/qiyeMain');
+  });

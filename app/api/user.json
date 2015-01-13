@@ -1,9 +1,9 @@
 {
-  "id":5,
+  "id":6501,
   "name":"zhang san",
   "passwd":"asdasdsdasdsd87877",
   "bumen":1,
-  "type":0,
+  "type":"QIYE",
   "role":[
     {
       "entBaseInfo":[

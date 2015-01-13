@@ -19,10 +19,14 @@ angular
         templateUrl: 'views/login.html',
         controller: 'LoginCtrl'
       })
+      .when('/logout',{
+        templateUrl: 'views/login.html',
+        controller: 'LogoutCtrl'
+      })
     /**
      * 主页
      */
-      .when('/', {
+      .when('/main', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
@@ -51,29 +55,22 @@ angular
         templateUrl: 'views/qiyemain.html',
         controller: 'QiyemainCtrl'
       })
+      .when('/forbidden403', {
+        templateUrl: 'views/forbidden403.html',
+        controller: 'Forbidden403Ctrl'
+      })
       .otherwise({
         redirectTo: '/login'
       });
   })
-
   .run(function (Authentication, Application, $rootScope, $location, RouteFilter) {
-
-    //Authentication.requestUser().then(function() {
-    //
-    //  Application.makeReady();
-    //});
-
-
     //路由监听，判断是否存在权限
     $rootScope.$on('$locationChangeStart', function(scope, next, current) {
-
       if($location.path() === '/login') return;
-
       if(! Application.isReady())
       {
         $location.path('login');
       }
-
       //触发判断
       RouteFilter.run($location.path());
     })

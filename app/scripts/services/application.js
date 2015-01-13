@@ -1,5 +1,7 @@
 'use strict';
-
+/**
+ * 应用服务
+ */
 angular.module('htmsMobileApp')
   .factory('Application', function Application() {
 
@@ -17,11 +19,15 @@ angular.module('htmsMobileApp')
         {
             return ready;
         },
+        cancelReady: function(){
+          ready = false;
+        },
 
         makeReady: function()
         {
             ready = true;
 
+            //启动后要执行的函数,在登陆验证通过后启动应用
             callListeners();
         },
 
