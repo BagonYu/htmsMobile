@@ -57,6 +57,17 @@ angular
         controller: 'YinhuanDetailCtrl'
       })
     /**
+     * 消息
+     */
+      .when('/message',{
+        templateUrl:'views/message/message-list.html',
+        controller:'MessageCtrl'
+      })
+      .when('/messageDetail/:id',{
+        templateUrl:'views/message/messageDetail.html',
+        controller:'MessageDetailCtrl'
+      })
+    /**
      * 其他
      */
       .when('/qiyeMain', {
