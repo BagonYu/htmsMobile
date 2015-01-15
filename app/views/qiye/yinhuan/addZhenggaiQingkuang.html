@@ -1,0 +1,83 @@
+<!-- Site header and navigation -->
+<div class="top  navbar-fixed-top" xmlns="http://www.w3.org/1999/html">
+  <div class="container">
+    <a href="#" class="navbar-brand pull-left">
+      隐患排查
+    </a>
+    <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+      <span class="glyphicon glyphicon-align-justify"></span>
+    </button>
+    <nav class="navbar-collapse collapse" role="navigation">
+      <ul class="navbar-nav nav">
+        <li><a href="#/">首页工作提醒</a></li>
+        <li><a href="#">隐患核查复查</a></li>
+        <li><a href="#">分级评定</a></li>
+      </ul>
+      <!--<form class="navbar-form navbar-left" role="search" style="padding-top: 5px">-->
+      <!--<div class="form-group">-->
+      <!--<input type="text" class="form-control input-sm" placeholder="搜索你感兴趣的事情">-->
+      <!--</div>-->
+      <!--<button type="submit" class="btn btn-sm">搜索</button>-->
+      <!--</form>-->
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#/logout">退出</a></li>
+      </ul>
+    </nav>
+  </div>
+</div>
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">填写整改情况</h3>
+    </div>
+    <div class="panel-body">
+      <div class="form-group">
+        <label for="zglx">整改类型</label>
+        <br/><select name="jycd" id="zglx">
+        <option value="{{$index}}" ng-repeat="jycd in ['立即整改','限期整改']">{{jycd}}</option>
+      </select>
+      </div>
+      <div class="form-group">
+        <label for="zgzt">整改状态</label>
+        <br/><select name="jycd" id="zgzt">
+        <option value="{{$index}}" ng-repeat="jycd in ['已整改','未整改']">{{jycd}}</option>
+      </select>
+      </div>
+      <div class="form-group">
+        <label for="yinhuanms">整改要求</label>
+        <textarea  class="form-control" id="yinhuanms" placeholder="请填写整改要求..."></textarea>
+      </div>
+      <div class="form-group">
+        <label for="faxianren">整改责任人</label>
+        <input  class="form-control" id="faxianren" placeholder="请填写隐患发现人...">
+      </div>
+      <div class="form-group">
+        <label>整改完成时间</label>
+        <br/>
+        <select name="nf" id="nf">
+          <option value="0"></option>
+          <option value="{{nn}}" ng-repeat="nn in [2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022]">{{nn}}</option>
+        </select>年
+        <select name="yf" id="yf">
+          <option value="0"></option>
+          <option value="{{num}}" ng-repeat="num in [1,2,3,4,5,6,7,8,9,10,11,12]">{{num}}</option>
+        </select>月
+        <select name="day" id="day">
+          <option value="0"></option>
+          <option value="{{dd}}" ng-repeat="dd in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31]">{{dd}}</option>
+        </select>日
+      </div>
+      <div class="form-group">
+        <label for="yinhuantupian">整改后图片</label>
+        <input type="file" id="yinhuantupian">
+        <p class="help-block">描述整改后的图片</p>
+      </div>
+    </div>
+    <div class="panel-footer" style="text-align: center">
+      <div class="btn-group">
+        <button class="btn btn-info btn-lg" ng-click="shangBaoYinhuan2('data')">上报</button>
+        <button type="button" class="btn btn-default btn-lg">保存</button>
+      </div>
+    </div>
+  </div>
+</div>

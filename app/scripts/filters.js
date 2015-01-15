@@ -8,12 +8,25 @@ angular.module('htmsMobileApp')
     }, '/login');
 
     //部门用户
-    RouteFilter.register('BUMEN', ['/entBaseInfo', '/newBaseInfo', new RegExp('/infoDetail/*'), '/main', '/logout','/message',new RegExp('/messageDetail/*')], function () {
+    RouteFilter.register('BUMEN', ['/entBaseInfo',
+      '/addYinhuanByBumen',
+      '/newBaseInfo',
+      new RegExp('/infoDetail/*'),'/message',new RegExp('/messageDetail/*'),
+      '/main', '/logout'], function () {
       return Authentication.typeEqBumen();
     }, '/main');
 
     //企业用户
-    RouteFilter.register('QIYE', ['/qiyeyinhuanByid','/entBaseInfo', '/newBaseInfo', new RegExp('/infoDetail/*'), '/qiyeMain', '/logout'], function () {
+    RouteFilter.register('QIYE', ['/qiyeyinhuanByid',
+        '/addYinhuan',
+        new RegExp('/addYinhuanQingkuang/*'),
+        '/addZhenggaiQingkuang',
+      '/entBaseInfo',
+      '/newBaseInfo',
+      new RegExp('/infoDetail/*'),new RegExp('/yinhuanDetail/*'),
+      '/qiyeMain', '/logout'],
+      function () {
       return Authentication.typeEqQiye();
-    }, '/qiyeMain');
+    },
+      '/qiyeMain');
   });

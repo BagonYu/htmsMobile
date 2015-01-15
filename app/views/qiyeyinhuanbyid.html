@@ -21,7 +21,7 @@
       <!--<button type="submit" class="btn btn-sm">搜索</button>-->
       <!--</form>-->
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#/logout">注册</a></li>
+        <li><a href="#/logout">退出</a></li>
       </ul>
     </nav>
   </div>
@@ -30,10 +30,11 @@
 
   <div class="row" >
     <div class="col-xs-12 col-md-12">
-      <div class="btn-group">
-        <button type="button" class="btn btn-default">增加隐患</button>
-        <button type="button" class="btn btn-default">自查标准配置</button>
-        <button type="button" class="btn btn-default">报平安</button>
+      <div style="text-align: center">
+        <div class="btn-group">
+          <button type="button" class="btn btn-default" ng-click="toAddYinhuan()">增加隐患</button>
+          <button type="button" class="btn btn-default">报平安</button>
+        </div>
       </div>
 
       <list-x ng-model="items" title="Contacts" on-load="loadHandler()" on-select="clickHandler(item)"  load-url="/views/db/yinhuans.json" item-handlers="nestedHandlers">
@@ -46,15 +47,14 @@
                         <span class="sr-only">编辑查看</span>
                       </button>
                       <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">审核</a></li>
-                        <li><a href="#">重置密码</a></li>
-                        <li><a href="#">注销</a></li>
+                        <li><a href="#">编辑</a></li>
+                        <li><a href="#">上报</a></li>
                         <li class="divider"></li>
                         <li><a href="#">删除</a></li>
                       </ul>
                     </div>
                 </span>
-          <div class="text-muted desc"><small style="padding-left: 50px;">{{ item.qyms }}</small>
+          <div class="text-muted desc"><small style="padding-left: 50px;">{{ item.yhd + ", " +item.zcbz}}</small>
             <!-- Split button -->
 
           </div>
