@@ -8,7 +8,10 @@
  * Controller of the htmsMobileApp
  */
 angular.module('htmsMobileApp')
-  .controller('QiyeyinhuanbyidCtrl', function($scope,$http) {
+  .controller('QiyeyinhuanbyidCtrl', function($scope,$http,$location) {
+    $scope.toAddYinhuan = function(){
+      $location.path('/addYinhuan');
+    };
     //$scope.nestedHandlers = {
     //  itemBtnClick: function(item, $event) {
     //    $event.cancelBubble = true;
@@ -25,7 +28,31 @@ angular.module('htmsMobileApp')
   }).controller('YinhuanDetailCtrl',function($scope,$routeParams){
 
 
-    console.log($routeParams.id)
+    console.log($routeParams.yinhuanId)
+  })
+  .controller('AddYinhuanCtrl',function($scope,$http,$location,$routeParams,Authentication){
+      var user = Authentication.getUser();
+      $http.get("api/zcbz.json?id="+user.id).success(function(zcbzs){
+        $scope.zcbzs = zcbzs;
+      }).error(function(error){
+        console.error(error);
+      });
+    $scope.isCollapsed = true;
+    //跳转到填写隐患情况
+    $scope.shangBaoYinhuan = function(type,zcbzid){
+      console.log(zcbzid);
+        $location.path('/addYinhuanQingkuang/'+type);
+    };
+    //跳转到填写整改情况
+    $scope.shangBaoYinhuan2 = function(data){
+      console.log(data);
+      var param = $routeParams.type;
+      console.log(param);
+      if(param === 'yiban'){
+        $location.path('/addZhenggaiQingkuang')
+      }else if(param === 'zhongda')
+      $location.path('/addZhenggaiQingkuangZhongda')
+    }
   })
   .controller("listxController", function ($scope, $element, $attrs, $transclude, $templateCache,$modal,$log ,listxConfig,RouteFilter) {
     $scope.canAccess = function(route)

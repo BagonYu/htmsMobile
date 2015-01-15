@@ -52,8 +52,20 @@ angular
         templateUrl: 'views/qiyeyinhuanbyid.html',
         controller: 'QiyeyinhuanbyidCtrl'
       })
+      .when('/addYinhuan',{
+        templateUrl: 'views/qiye/yinhuan/addYinhuan.html',
+        controller: 'AddYinhuanCtrl'
+      })
+      .when('/addYinhuanQingkuang/:type',{
+        templateUrl: 'views/qiye/yinhuan/addYinhuanQingkuang.html',
+        controller: 'AddYinhuanCtrl'
+      })
+      .when('/addZhenggaiQingkuang',{
+        templateUrl: 'views/qiye/yinhuan/addZhenggaiQingkuang.html',
+        controller: 'AddYinhuanCtrl'
+      })
       .when('/yinhuanDetail/:yinhuanId',{
-        templateUrl: 'views/yinhuanDetail.html',
+        templateUrl: 'views/qiye/yinhuan/yinhuanDetail.html',
         controller: 'YinhuanDetailCtrl'
       })
     /**

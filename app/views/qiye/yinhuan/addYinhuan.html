@@ -1,0 +1,53 @@
+<!-- Site header and navigation -->
+<div class="top  navbar-fixed-top">
+  <div class="container">
+    <a href="#" class="navbar-brand pull-left">
+      隐患排查
+    </a>
+    <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+      <span class="glyphicon glyphicon-align-justify"></span>
+    </button>
+    <nav class="navbar-collapse collapse" role="navigation">
+      <ul class="navbar-nav nav">
+        <li><a href="#/qiyeMain">首页工作提醒</a></li>
+        <li><a href="#">隐患核查复查</a></li>
+        <li><a href="#">分级评定</a></li>
+      </ul>
+      <!--<form class="navbar-form navbar-left" role="search" style="padding-top: 5px">-->
+      <!--<div class="form-group">-->
+      <!--<input type="text" class="form-control input-sm" placeholder="搜索你感兴趣的事情">-->
+      <!--</div>-->
+      <!--<button type="submit" class="btn btn-sm">搜索</button>-->
+      <!--</form>-->
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#/logout">退出</a></li>
+      </ul>
+    </nav>
+  </div>
+</div>
+<div class="container">
+      <label for="zcbzlable">自查标准配置</label>
+  <div class="input-group" id="zcbzlable">
+    <input type="text" class="form-control" placeholder="搜索自查标准">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button">搜索</button>
+      </span>
+  </div>
+  <hr/>
+  <div class="list-group">
+    <a ng-click="isCollapsed = !isCollapsed" class="list-group-item" ng-repeat="zcbz in zcbzs" id="zcbz{{zcbz.zcbzid}}">
+      <h4 class="list-group-item-heading">{{zcbz.zclb}}</h4>
+      <p class="list-group-item-text">{{zcbz.zcbzms}}</p>
+      <div collapse="isCollapsed">
+        <div class="well well-lg" style="margin-bottom: 0;border: none;text-align: center">
+          <div class="btn-group" role="group">
+            <button type="button" class="btn btn-info" ng-click="shangBaoYinhuan('yiban',zcbz.zcbzid)">一般隐患</button>
+            <button type="button" class="btn btn-danger" ng-click="shangBaoYinhuan('zhongda',zcbz.zcbzid)">重大隐患</button>
+          </div>
+        </div>
+      </div>
+    </a>
+  </div>
+
+
+</div>
