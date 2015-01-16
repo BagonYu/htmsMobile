@@ -68,6 +68,18 @@ angular
         templateUrl: 'views/qiye/yinhuan/yinhuanDetail.html',
         controller: 'YinhuanDetailCtrl'
       })
+      //部门隐患核查复查和列表查询
+      .when('/yinhuanAll',{
+        templateUrl: 'views/bumen/yinhuan/yinhuanList.html',
+        controller: 'YinhuanCtrl'
+      })
+      .when('/yinhuan/:yhid',{
+        templateUrl: 'views/bumen/yinhuan/yinhuan.html',
+        controller: 'YinhuanCtrl'
+      })
+      .when('/yinhuanHecha/:yinhuanId/:qyid',{
+
+      })
     /**
      * 消息
      */
