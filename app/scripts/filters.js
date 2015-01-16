@@ -8,7 +8,7 @@ angular.module('htmsMobileApp')
     }, '/login');
 
     //部门用户
-    RouteFilter.register('BUMEN', ['/entBaseInfo',
+    RouteFilter.register('BUMEN', ['/entBaseInfo','/yinhuanAll',
       '/addYinhuanByBumen',
       '/newBaseInfo',
       new RegExp('/infoDetail/*'),'/message',new RegExp('/messageDetail/*'),
