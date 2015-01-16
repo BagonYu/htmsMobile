@@ -92,6 +92,17 @@ angular
         controller:'MessageDetailCtrl'
       })
     /**
+     * 企业消息
+     */
+      .when('/qiyeMessage',{
+        templateUrl:'views/qiyeMessage/message-list.html',
+        controller:'QiyeMessageCtrl'
+      })
+      .when('/qiyeMessageDetail/:id',{
+        templateUrl:'views/qiyeMessage/messageDetail.html',
+        controller:'QiyeMessageDetailCtrl'
+      })
+    /**
      * 其他
      */
       .when('/qiyeMain', {

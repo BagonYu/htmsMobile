@@ -1,4 +1,7 @@
 /**
+ * Created by win8 on 2015/1/15.
+ */
+/**
  * Created by win8 on 2015/1/14.
  */
 'use strict';
@@ -9,13 +12,13 @@
  * # MessageCtrl 消息信息的控制器
  * Controller of the htmsMobileApp
  */
-angular.module('htmsMobileApp').value("messageListxConfig", {
-  template: "views/tpl/message/list-tpl.html",
-  searchBarTemplate: "views/tpl/message/search-bar-tpl.html",
-  itemsTemplate: "views/tpl/message/items-tpl.html",
-  itemTemplate: "views/tpl/message/item-tpl.html"
+angular.module('htmsMobileApp').value("qiyeMessageListxConfig", {
+  template: "views/tpl/qiyeMessage/list-tpl.html",
+  searchBarTemplate: "views/tpl/qiyeMessage/search-bar-tpl.html",
+  itemsTemplate: "views/tpl/qiyeMessage/items-tpl.html",
+  itemTemplate: "views/tpl/qiyeMessage/item-tpl.html"
 })
-  .controller('MessageCtrl', function($scope,$http) {
+  .controller('QiyeMessageCtrl', function($scope,$http) {
     //$scope.nestedHandlers = {
     //  itemBtnClick: function(item, $event) {
     //    $event.cancelBubble = true;
@@ -23,23 +26,20 @@ angular.module('htmsMobileApp').value("messageListxConfig", {
     //    console.log(item, $event);
     //  }
     //};
-    $http.get("views/db/entBaseInfos.json").success(
-      function(data,status,headers,config){
-        $scope.entBaseInfos = data;
-      }).error(function(data,status,headers,config){
-        console.log('error')
-      });
-  }).controller('MessageDetailCtrl',function($scope,$routeParams,$location){
-    $scope.back = function(){
-      $location.path("/message");
-    }
+    //$http.get("views/db/entBaseInfos.json").success(
+    //  function(data,status,headers,config){
+    //    $scope.entBaseInfos = data;
+    //  }).error(function(data,status,headers,config){
+    //    console.log('error')
+    //  });
+  }).controller('QiyeMessageDetailCtrl',function($scope,$routeParams,$location){
     console.log($routeParams.id)
-  }).controller("messageListxController", function ($scope, $element, $attrs, $transclude, $templateCache,$modal,$log ,messageListxConfig,RouteFilter) {
+  }).controller("qiyeMessageListxController", function ($scope, $element, $attrs, $transclude, $templateCache,$modal,$log ,qiyeMessageListxConfig,RouteFilter) {
     $scope.canAccess = function(route)
     {
       return RouteFilter.canAccess(route);
-    }
-    $scope.searchActionItems = ['全部', '审核消息', '评级消息','隐患消息','逾期未整改隐患预警提示','自定义'];
+  }
+$scope.searchActionItems = ['全部', '自查自报工作提醒', '核查、审核信息通报','通知','约谈提醒','自定义'];
     $scope.searchActionItemSelected = {item : $scope.searchActionItems[0]};
     $scope.open = function (size) {
       var modalInstance = $modal.open({
@@ -78,9 +78,9 @@ angular.module('htmsMobileApp').value("messageListxConfig", {
       }
       $scope.searchActionItemSelected = {item : searchActionItem};
     }
-    $scope.searchBarTemplate = messageListxConfig.searchBarTemplate;
-    $scope.itemsTemplate = messageListxConfig.itemsTemplate;
-    $scope.itemTemplate = messageListxConfig.itemTemplate;
+    $scope.searchBarTemplate = qiyeMessageListxConfig.searchBarTemplate;
+    $scope.itemsTemplate = qiyeMessageListxConfig.itemsTemplate;
+    $scope.itemTemplate = qiyeMessageListxConfig.itemTemplate;
     $scope.itemTpl = false;
     $scope.q = {val: ""};
     $scope.isSelected = function (item) {
@@ -115,7 +115,7 @@ angular.module('htmsMobileApp').value("messageListxConfig", {
     };
     return null
   })
-  .directive("messageListX", ["$http", "$templateCache", "messageListxConfig", function ($http, $templateCache, messageListxConfig) {
+  .directive("qiyeMessageListX", ["$http", "$templateCache", "qiyeMessageListxConfig", function ($http, $templateCache, qiyeMessageListxConfig) {
     return {
       restrict: "E",
       transclude: true,
@@ -133,9 +133,9 @@ angular.module('htmsMobileApp').value("messageListxConfig", {
         onMouseLeave: "&"
       },
       templateUrl: function (tElement, tAttrs) {
-        return messageListxConfig.template
+        return qiyeMessageListxConfig.template
       },
-      controller: "messageListxController",
+      controller: "qiyeMessageListxController",
       link: function (scope, iElement, iAttrs, controller) {
         if (scope.loadUrl) {
           $http.get(scope.loadUrl).success(function (data) {
@@ -147,12 +147,12 @@ angular.module('htmsMobileApp').value("messageListxConfig", {
         return $(".list-x-main").removeAttr("title")
       }
     }
-  }]).directive("messageItemTemplate", function () {
+  }]).directive("qiyeMessageItemTemplate", function () {
     return {
       restrict: "E",
       replace: true,
       transclude: true,
-      require: "^messageListX",
+      require: "^qiyeMessageListX",
       scope: {itemTemplate: "@"},
       template: "<div ng-transclude></div>",
       link: function (scope, iElement, iAttrs, controller) {

@@ -24,6 +24,7 @@ angular.module('htmsMobileApp')
       '/entBaseInfo',
       '/newBaseInfo',
       new RegExp('/infoDetail/*'),new RegExp('/yinhuanDetail/*'),
+        '/qiyeMessage',new RegExp('/qiyeMessageDetail/*'),
       '/qiyeMain', '/logout'],
       function () {
       return Authentication.typeEqQiye();
