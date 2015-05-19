@@ -9,6 +9,13 @@ angular.module('htmsMobileApp')
 
     return  {
 
+        getUserNameAndPasswd:function(){
+          return {
+            un:authenticatedUser.username,
+            pw:authenticatedUser.passwd
+          }
+        },
+
         getUser: function()
         {
             return authenticatedUser;
